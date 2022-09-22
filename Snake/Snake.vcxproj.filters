@@ -13,11 +13,13 @@
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Segment.cpp" />
     <ClCompile Include="Serpent.cpp" />
+    <ClCompile Include="GestionTexture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Constants.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="Segment.h" />
     <ClInclude Include="Serpent.h" />
+    <ClInclude Include="GestionTexture.h" />
   </ItemGroup>
 </Project>

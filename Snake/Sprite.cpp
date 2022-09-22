@@ -1,4 +1,5 @@
 #include "Sprite.h"
+#include "GestionTexture.h"
 #include <string>
 
 Sprite::Sprite(std::string pathP, float xP, float yP, float rotationP, bool centeredP) :
@@ -9,7 +10,7 @@ Sprite::Sprite(std::string pathP, float xP, float yP, float rotationP, bool cent
 	centered{ centeredP }{}
 
 void Sprite::Load() {
-	texture = LoadTexture(path.c_str());
+	texture = GestionTexture::Get(path);
 	if (centered) {
 		origin = { (float)(texture.width / 2),
 				   (float)(texture.height / 2) };
@@ -26,7 +27,7 @@ void Sprite::Draw() {
 }
 
 void Sprite::Unload() {
-	UnloadTexture(texture);
+	//UnloadTexture(texture);
 }
 
 Rectangle Sprite::GetRectangle() {

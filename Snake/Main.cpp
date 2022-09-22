@@ -2,6 +2,7 @@
 #include "Constants.h"
 #include "Serpent.h"
 #include "Segment.h"
+#include "GestionTexture.h"
 
 //declaration
 //------------------------------------------------------------------
@@ -11,8 +12,18 @@ void Draw();
 void Update();
 void Unload();
 
+vector<string> nomsTextures{
+"assets/case.png",
+"assets/mur.png",
+"assets/pomme.png",
+"assets/segment.png",
+"assets/tete.png"
+};
+GestionTexture gestionTexture{ nomsTextures };
+
+
 Serpent serpent{ Constants::SERPENT_DEPART_X, Constants::SERPENT_DEPART_Y };
-Segment pomme{ "assets/pomme.png", 400, 96 };
+Segment pomme{ "assets/pomme.png", 400, 96};
 
 float horloge{ 0.0f };
 void GestionPomme();
@@ -24,6 +35,7 @@ void Load() {
 	InitWindow(Constants::SCREEN_WIDTH, Constants::SCREEN_HEIGHT, "Snake");
 	SetTargetFPS(60);
 
+	gestionTexture.Load();
 	serpent.Load();
 	pomme.Load();
 }
@@ -45,6 +57,7 @@ void Update() {
 }
 
 void Unload() {
+	gestionTexture.Unload();
 	serpent.Unload();
 	pomme.Unload();
 
