@@ -15,6 +15,8 @@ public:
 	void Draw();
 	void Update(float dt);
 	void Unload();
+	Rectangle GetRectangleTete();
+	void AjouterSegment();
 
 private:
 	void Deplacer();

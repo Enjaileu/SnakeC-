@@ -66,6 +66,20 @@ void Serpent::Unload()
 	}
 }
 
+Rectangle Serpent::GetRectangleTete()
+{
+	return tete.GetRectangle();
+}
+
+void Serpent::AjouterSegment()
+{
+	float coordX = queue[queue.size() - 1].x;
+	float coordY = queue[queue.size() - 1].y + Constants::SEGMENT_TAILLE;
+	Segment nouveau{ "assets/segment.png", coordX, coordY };
+	nouveau.Load();
+	queue.push_back(nouveau);
+}
+
 void Serpent::Deplacer()
 {
 	if (direction != 0) {
@@ -94,8 +108,14 @@ void Serpent::Deplacer()
 
 void Serpent::RepositionnerQueue()
 {
+	
 	for (unsigned int i = 1; i < queue.size()+1; ++i) { 
 		queue[i - 1].Positionner(tete.x, tete.y + (i * Constants::SEGMENT_TAILLE));
+	}
+
+	for (int j = queue.size() - 1; j > 2; --j) {
+		queue[j].Unload();
+		queue.erase(begin(queue) + j);
 	}
 }
 
