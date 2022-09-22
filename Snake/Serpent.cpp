@@ -108,15 +108,16 @@ void Serpent::Deplacer()
 
 void Serpent::RepositionnerQueue()
 {
-	
 	for (unsigned int i = 1; i < queue.size()+1; ++i) { 
 		queue[i - 1].Positionner(tete.x, tete.y + (i * Constants::SEGMENT_TAILLE));
 	}
 
 	for (int j = queue.size() - 1; j > 2; --j) {
-		queue[j].Unload();
+		//queue[j].Unload();
 		queue.erase(begin(queue) + j);
 	}
+
+
 }
 
 bool Serpent::Autocollision()

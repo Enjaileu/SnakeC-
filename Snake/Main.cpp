@@ -3,6 +3,7 @@
 #include "Serpent.h"
 #include "Segment.h"
 #include "GestionTexture.h"
+#include "Tilemap.h"
 
 //declaration
 //------------------------------------------------------------------
@@ -25,6 +26,8 @@ GestionTexture gestionTexture{ nomsTextures };
 Serpent serpent{ Constants::SERPENT_DEPART_X, Constants::SERPENT_DEPART_Y };
 Segment pomme{ "assets/pomme.png", 400, 96};
 
+Tilemap tilemap{};
+
 float horloge{ 0.0f };
 void GestionPomme();
 
@@ -36,6 +39,7 @@ void Load() {
 	SetTargetFPS(60);
 
 	gestionTexture.Load();
+	tilemap.Load();
 	serpent.Load();
 	pomme.Load();
 }
@@ -45,6 +49,7 @@ void Draw() {
 	BeginDrawing();
 	ClearBackground(BLACK);
 
+	tilemap.Draw();
 	serpent.Draw();
 	pomme.Draw();
 
@@ -58,6 +63,7 @@ void Update() {
 
 void Unload() {
 	gestionTexture.Unload();
+	tilemap.Unload();
 	serpent.Unload();
 	pomme.Unload();
 
@@ -70,12 +76,12 @@ void GestionPomme() {
 	if (CheckCollisionRecs(rectangleTete, pomme.GetRectangle())) {
 		serpent.AjouterSegment();
 		//Nouvelle position de la pomme
-		float nombreZeroUn = (float)rand() / (float)RAND_MAX;
-		float x = nombreZeroUn * Constants::SCREEN_WIDTH;
-		nombreZeroUn = (float)rand() / (float)RAND_MAX;
-		float y = nombreZeroUn * Constants::SCREEN_HEIGHT;
-		x = x - ((int)x % (int)Constants::SEGMENT_TAILLE);
-		y = y - ((int)y % (int)Constants::SEGMENT_TAILLE);
+		float nombreEntreZeroEtUn = (float)rand() / (float)RAND_MAX;
+		int carteX = floor(nombreEntreZeroEtUn * (Constants::CARTE_TAILLE_X - 2)) + 1;
+		float x = Constants::coordX(carteX);
+		nombreEntreZeroEtUn = (float)rand() / (float)RAND_MAX;
+		int carteY = floor(nombreEntreZeroEtUn * (Constants::CARTE_TAILLE_Y - 2)) + 1;
+		float y = Constants::coordY(carteY);
 		pomme.Positionner(x, y);
 	}
 }

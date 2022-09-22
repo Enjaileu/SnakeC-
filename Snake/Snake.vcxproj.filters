@@ -14,6 +14,8 @@
     <ClCompile Include="Segment.cpp" />
     <ClCompile Include="Serpent.cpp" />
     <ClCompile Include="GestionTexture.cpp" />
+    <ClCompile Include="Tile.cpp" />
+    <ClCompile Include="Tilemap.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Constants.h" />
@@ -21,5 +23,7 @@
     <ClInclude Include="Segment.h" />
     <ClInclude Include="Serpent.h" />
     <ClInclude Include="GestionTexture.h" />
+    <ClInclude Include="Tile.h" />
+    <ClInclude Include="Tilemap.h" />
   </ItemGroup>
 </Project>

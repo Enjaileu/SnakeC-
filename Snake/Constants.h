@@ -14,5 +14,11 @@ public:
 	static const float HORLOGE;
 	static const float SERPENT_DEPART_X;
 	static const float SERPENT_DEPART_Y;
+
+	// Carte
+	static const int CARTE_TAILLE_X;
+	static const int CARTE_TAILLE_Y;
+	static float coordX(int xCarte);
+	static float coordY(int yCarte);
 };
 
