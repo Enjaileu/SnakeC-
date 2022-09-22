@@ -16,6 +16,9 @@
     <ClCompile Include="GestionTexture.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="Tilemap.cpp" />
+    <ClCompile Include="EtatJeu.cpp" />
+    <ClCompile Include="EtatMenu.cpp" />
+    <ClCompile Include="EtatGameover.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Constants.h" />
@@ -25,5 +28,9 @@
     <ClInclude Include="GestionTexture.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="Tilemap.h" />
+    <ClInclude Include="Etat.h" />
+    <ClInclude Include="EtatJeu.h" />
+    <ClInclude Include="EtatMenu.h" />
+    <ClInclude Include="EtatGameover.h" />
   </ItemGroup>
 </Project>

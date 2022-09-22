@@ -171,6 +171,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Constants.cpp" />
+    <ClCompile Include="EtatGameover.cpp" />
+    <ClCompile Include="EtatJeu.cpp" />
+    <ClCompile Include="EtatMenu.cpp" />
     <ClCompile Include="GestionTexture.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Segment.cpp" />
@@ -186,6 +189,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Constants.h" />
+    <ClInclude Include="Etat.h" />
+    <ClInclude Include="EtatGameover.h" />
+    <ClInclude Include="EtatJeu.h" />
+    <ClInclude Include="EtatMenu.h" />
     <ClInclude Include="GestionTexture.h" />
     <ClInclude Include="Segment.h" />
     <ClInclude Include="Serpent.h" />
