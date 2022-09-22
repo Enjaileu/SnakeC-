@@ -10,3 +10,5 @@ const int Constants::VERTICAL_SEPARATION{ 25 };
 // Serpent
 const int Constants::SEGMENT_TAILLE{ 16 };
 const float Constants::HORLOGE{ 0.15f };
+const float Constants::SERPENT_DEPART_X{ 100.f };
+const float Constants::SERPENT_DEPART_Y{ 100.f };

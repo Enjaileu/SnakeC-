@@ -10,7 +10,7 @@ void Draw();
 void Update();
 void Unload();
 
-Serpent serpent{ 100, 100 };
+Serpent serpent{ Constants::SERPENT_DEPART_X, Constants::SERPENT_DEPART_Y };
 
 float horloge{ 0.0f };
 void DeplacerSerpent();

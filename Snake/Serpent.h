@@ -3,6 +3,7 @@
 #include "Segment.h"
 #include <vector>
 #include "Constants.h"
+#include <cmath>
 
 using namespace std;
 
@@ -18,6 +19,7 @@ public:
 private:
 	void Deplacer();
 	void RepositionnerQueue();
+	bool Autocollision();
 
 	float horloge{ 0.0f };
 	Segment tete{ "assets/tete.png", 0, 0 };

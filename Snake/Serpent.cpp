@@ -29,7 +29,15 @@ void Serpent::Update(float dt)
 	if (horloge >= Constants::HORLOGE) {
 		Deplacer();
 		horloge -= Constants::HORLOGE;
+
+		// Gestion de la défaite
+		if (Autocollision()) {
+			direction = 0;
+			tete.Positionner(Constants::SERPENT_DEPART_X, Constants::SERPENT_DEPART_Y);
+			RepositionnerQueue();
+		}
 	}
+
 
 	// Gestion de la direction
 	if (IsKeyPressed(KEY_S) || IsKeyPressed(KEY_DOWN)) {
@@ -89,4 +97,14 @@ void Serpent::RepositionnerQueue()
 	for (unsigned int i = 1; i < queue.size()+1; ++i) { 
 		queue[i - 1].Positionner(tete.x, tete.y + (i * Constants::SEGMENT_TAILLE));
 	}
+}
+
+bool Serpent::Autocollision()
+{
+	for (Segment& segment : queue) {
+		if (abs(tete.x- segment.x) < 0.0001f && abs(tete.y - segment.y) < 0.0001f) {
+			return true;
+		}
+	}
+	return false;
 }
