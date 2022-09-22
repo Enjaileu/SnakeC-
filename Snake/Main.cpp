@@ -1,73 +1,62 @@
 #include "raylib.h"
-#include <iostream>
-#include <stdio.h>  
-#include <math.h> 
-#include <vector>
-#include <string>
+#include "Constants.h"
+#include "Serpent.h"
 
+//declaration
+//------------------------------------------------------------------
 
-using namespace std;
-
-//Editor Variable
-void Update();
+void Load();
 void Draw();
-void DrawUi();
-void Start();
+void Update();
+void Unload();
 
-//Setup la taille de l'écran
-int const screenWidth = 960;
-int const screenHeight = 540;
+Serpent serpent{ 100, 100 };
 
-int main(int argc, char* argv[])
-{
+float horloge{ 0.0f };
+void DeplacerSerpent();
 
-    //Créer un écran et on met les fps à 60
-    string windowName = "GameWindow";
-    InitWindow(screenWidth, screenHeight, windowName.c_str());
+//Code et définition
+//------------------------------------------------------------------
 
-    //ToggleFullscreen();
-    SetWindowPosition(0, 10);
-    SetTargetFPS(60);
+void Load() {
+	InitWindow(Constants::SCREEN_WIDTH, Constants::SCREEN_HEIGHT, "Snake");
+	SetTargetFPS(60);
 
-    Start();
-
-    while (!WindowShouldClose())    // Detect window close button or ESC key
-    {
-        // Update
-        Update();
-        // Draw
-        Draw();       
-
-    }
-
-    CloseWindow();
-
-    return 0;
-
-
+	serpent.Load();
 }
 
-void Start()
-{
+void Draw() {
 
+	BeginDrawing();
+	ClearBackground(BLACK);
+
+	serpent.Draw();
+
+	EndDrawing();
+}
+void Update() {
+	float dt = GetFrameTime();
+	serpent.Update(dt);
 }
 
-void Update()
-{
+void Unload() {
+	serpent.Unload();
 
+	CloseWindow();
 }
 
-void Draw()
-{
-    BeginDrawing();
-    ClearBackground(BLACK);
-
-
-    DrawUi();
-    EndDrawing();
+void DeplacerSerpent() {
+	
 }
 
-void DrawUi()
-{
+int main() {
+	Load();
 
+	while (!WindowShouldClose()) {
+		Update();
+		Draw();
+	}
+
+	Unload();
+	return 0;
 }

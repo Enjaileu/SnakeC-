@@ -9,5 +9,15 @@
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Constants.cpp" />
+    <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="Segment.cpp" />
+    <ClCompile Include="Serpent.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Constants.h" />
+    <ClInclude Include="Sprite.h" />
+    <ClInclude Include="Segment.h" />
+    <ClInclude Include="Serpent.h" />
   </ItemGroup>
 </Project>
