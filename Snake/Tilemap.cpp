@@ -39,3 +39,8 @@ void Tilemap::Unload() {
 		}
 	}
 }
+
+bool Tilemap::CasePassable(int carteX, int carteY) {
+
+	return carte[carteX * tailleY + carteY].passable;
+}

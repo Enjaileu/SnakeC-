@@ -17,6 +17,9 @@ public:
 	void Unload();
 	Rectangle GetRectangleTete();
 	void AjouterSegment();
+	void Recommencer();
+	float GetX();
+	float GetY();
 
 private:
 	void Deplacer();

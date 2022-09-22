@@ -12,6 +12,8 @@ public:
 	void Load(); 
 	void Draw();
 	void Unload();
+	bool CasePassable(int carteX, int carteY);
+
 	int tailleX{ Constants::CARTE_TAILLE_X };
 	int tailleY{ Constants::CARTE_TAILLE_Y };
 	int tailleCase{ (int)Constants::SEGMENT_TAILLE };

@@ -30,6 +30,7 @@ Tilemap tilemap{};
 
 float horloge{ 0.0f };
 void GestionPomme();
+void GestionCollisionsCarte();
 
 //Code et définition
 //------------------------------------------------------------------
@@ -59,6 +60,7 @@ void Update() {
 	float dt = GetFrameTime();
 	serpent.Update(dt);
 	GestionPomme();
+	GestionCollisionsCarte();
 }
 
 void Unload() {
@@ -78,11 +80,19 @@ void GestionPomme() {
 		//Nouvelle position de la pomme
 		float nombreEntreZeroEtUn = (float)rand() / (float)RAND_MAX;
 		int carteX = floor(nombreEntreZeroEtUn * (Constants::CARTE_TAILLE_X - 2)) + 1;
-		float x = Constants::coordX(carteX);
+		float x = Constants::CoordX(carteX);
 		nombreEntreZeroEtUn = (float)rand() / (float)RAND_MAX;
 		int carteY = floor(nombreEntreZeroEtUn * (Constants::CARTE_TAILLE_Y - 2)) + 1;
-		float y = Constants::coordY(carteY);
+		float y = Constants::CoordY(carteY);
 		pomme.Positionner(x, y);
+	}
+}
+
+void GestionCollisionsCarte() {
+	int carteX = Constants::CarteX(serpent.GetX());
+	int carteY = Constants::CarteY(serpent.GetY());
+	if (!tilemap.CasePassable(carteX, carteY)) {
+		serpent.Recommencer();
 	}
 }
 

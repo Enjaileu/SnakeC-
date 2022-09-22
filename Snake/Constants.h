@@ -18,7 +18,10 @@ public:
 	// Carte
 	static const int CARTE_TAILLE_X;
 	static const int CARTE_TAILLE_Y;
-	static float coordX(int xCarte);
-	static float coordY(int yCarte);
+	static float CoordX(int xCarte);
+	static float CoordY(int yCarte);
+
+	static int CarteX(float x);
+	static int CarteY(float y);
 };
 

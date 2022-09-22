@@ -32,9 +32,7 @@ void Serpent::Update(float dt)
 
 		// Gestion de la défaite
 		if (Autocollision()) {
-			direction = 0;
-			tete.Positionner(Constants::SERPENT_DEPART_X, Constants::SERPENT_DEPART_Y);
-			RepositionnerQueue();
+			Recommencer();
 		}
 	}
 
@@ -128,4 +126,17 @@ bool Serpent::Autocollision()
 		}
 	}
 	return false;
+}
+
+void Serpent::Recommencer() {
+	direction = 0;
+	tete.Positionner(Constants::SERPENT_DEPART_X, Constants::SERPENT_DEPART_Y);
+	RepositionnerQueue();
+}
+float Serpent::GetX() {
+	return tete.x;
+}
+
+float Serpent::GetY() {
+	return tete.y;
 }
