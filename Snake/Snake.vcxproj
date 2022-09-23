@@ -194,6 +194,7 @@
     <ClInclude Include="EtatJeu.h" />
     <ClInclude Include="EtatMenu.h" />
     <ClInclude Include="GestionTexture.h" />
+    <ClInclude Include="ProchainEtat.h" />
     <ClInclude Include="Segment.h" />
     <ClInclude Include="Serpent.h" />
     <ClInclude Include="Sprite.h" />

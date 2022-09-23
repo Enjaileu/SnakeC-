@@ -44,3 +44,8 @@ void EtatJeu::GestionCollisionsCarte() {
 		serpent.Recommencer();
 	}
 }
+
+ProchainEtat EtatJeu::prochainEtat()
+{
+	return ProchainEtat::None;
+}

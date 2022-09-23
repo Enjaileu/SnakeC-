@@ -9,3 +9,8 @@ void EtatGameover::Draw() {
 void EtatGameover::Unload() {
 }
 
+ProchainEtat EtatGameover::prochainEtat()
+{
+    return ProchainEtat::None;
+}
+

@@ -21,6 +21,8 @@ private:
     Segment pomme{ "assets/pomme.png", Constants::CoordX(16), Constants::CoordY(3) };
 
     Tilemap tilemap{};
+
+    ProchainEtat prochainEtat() override;
 };
 
 

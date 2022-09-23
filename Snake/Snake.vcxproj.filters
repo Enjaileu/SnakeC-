@@ -32,5 +32,6 @@
     <ClInclude Include="EtatJeu.h" />
     <ClInclude Include="EtatMenu.h" />
     <ClInclude Include="EtatGameover.h" />
+    <ClInclude Include="ProchainEtat.h" />
   </ItemGroup>
 </Project>

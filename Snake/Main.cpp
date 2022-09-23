@@ -12,11 +12,13 @@ void Load();
 void Draw();
 void Update();
 void Unload();
+void GererChangementEtat();
+void ChangerEtat(Etat& nouvelEtat);
 
 EtatMenu etatMenu{};
 EtatJeu etatJeu{};
-EtatGameover etatGameOver{};
-Etat& etatCourrant = etatJeu;
+EtatGameover etatGameover{};
+Etat& etatCourant = etatJeu;
 
 vector<string> nomsTextures{
 "assets/case.png",
@@ -37,27 +39,52 @@ void Load() {
 	SetTargetFPS(60);
 
 	gestionTexture.Load();
-	etatCourrant.Load();
+	etatCourant.Load();
 }
 
 void Draw() {
 
 	BeginDrawing();
 	ClearBackground(BLACK);
-	etatCourrant.Draw();
+	etatCourant.Draw();
 
 	EndDrawing();
 }
 void Update() {
 	float dt = GetFrameTime();
-	etatCourrant.Update(dt);
+	etatCourant.Update(dt);
+	GererChangementEtat();
 }
 
 void Unload() {
 	gestionTexture.Unload();
-	etatCourrant.Unload();
+	etatCourant.Unload();
 
 	CloseWindow();
+}
+
+void GererChangementEtat() {
+	ProchainEtat prochainEtat = etatCourant.prochainEtat();
+	switch (prochainEtat)
+	{
+	case ProchainEtat::Menu:
+		ChangerEtat(etatMenu);
+		break;
+	case ProchainEtat::Jeu:
+		ChangerEtat(etatJeu);
+		break;
+	case ProchainEtat::Gameover:
+		ChangerEtat(etatGameover);
+		break;
+	default:
+		break;
+	}
+}
+
+void ChangerEtat(Etat& nouvelEtat) {
+	etatCourant.Unload();
+	etatCourant = nouvelEtat;
+	etatCourant.Load();
 }
 
 int main() {

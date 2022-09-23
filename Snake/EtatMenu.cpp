@@ -8,3 +8,8 @@ void EtatMenu::Draw() {
 }
 void EtatMenu::Unload() {
 }
+
+ProchainEtat EtatMenu::prochainEtat()
+{
+	return ProchainEtat::None;
+}
