@@ -20,6 +20,7 @@ public:
 	void Recommencer();
 	float GetX();
 	float GetY();
+	bool GetDefaite();
 
 private:
 	void Deplacer();
@@ -35,5 +36,6 @@ private:
 	};
 
 	int direction{ 0 };
+	bool defaite{ false };
 };
 

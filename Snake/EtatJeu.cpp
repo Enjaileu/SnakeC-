@@ -9,6 +9,9 @@ void EtatJeu::Update(float dt) {
 	serpent.Update(dt);
 	GestionPomme();
 	GestionCollisionsCarte();
+	if (serpent.GetDefaite()) {
+		transition = ProchainEtat::Gameover;
+	}
 }
 void EtatJeu::Draw() {
 	tilemap.Draw();
@@ -41,11 +44,13 @@ void EtatJeu::GestionCollisionsCarte() {
 	int carteX = Constants::CarteX(serpent.GetX());
 	int carteY = Constants::CarteY(serpent.GetY());
 	if (!tilemap.CasePassable(carteX, carteY)) {
-		serpent.Recommencer();
+		transition = ProchainEtat::Gameover;
 	}
 }
 
 ProchainEtat EtatJeu::prochainEtat()
 {
-	return ProchainEtat::None;
+	ProchainEtat nouvelEtat = transition;
+	transition = ProchainEtat::None;
+	return nouvelEtat;
 }

@@ -33,6 +33,7 @@ void Serpent::Update(float dt)
 		// Gestion de la défaite
 		if (Autocollision()) {
 			Recommencer();
+			defaite = true;
 		}
 	}
 
@@ -139,4 +140,8 @@ float Serpent::GetX() {
 
 float Serpent::GetY() {
 	return tete.y;
+}
+
+bool Serpent::GetDefaite() {
+	return defaite;
 }

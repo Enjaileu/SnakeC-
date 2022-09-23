@@ -23,6 +23,7 @@ private:
     Tilemap tilemap{};
 
     ProchainEtat prochainEtat() override;
+    ProchainEtat transition{ ProchainEtat::None };
 };
 
 
