@@ -12,6 +12,10 @@ void Serpent::Load()
 	for (Segment& segment : queue) {
 		segment.Load();
 	}
+
+	//réinitialise le serpent
+	defaite = false;
+	Recommencer();
 }
 
 void Serpent::Draw()

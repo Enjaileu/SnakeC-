@@ -9,5 +9,7 @@ public:
     void Draw() override;
     void Unload() override;
     ProchainEtat prochainEtat() override;
+
+    ProchainEtat transition{ ProchainEtat::None };
 };
 

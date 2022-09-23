@@ -19,9 +19,9 @@ void EtatJeu::Draw() {
 	pomme.Draw();
 }
 void EtatJeu::Unload() {
-	tilemap.Unload();
-	serpent.Unload();
-	pomme.Unload();
+	//tilemap.Unload();
+	//serpent.Unload();
+	//pomme.Unload();
 }
 
 void EtatJeu::GestionPomme() {
